@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
-	let categoryItems = {};
+	let itemList = {};
 	let loading = true;
 	const baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.warframe.market/v2';
 
@@ -10,6 +10,7 @@
 			// Fetch all items
 			const itemResponse = await fetch(`${baseUrl}/items`);
 			let itemData = await itemResponse.json();
+			itemList = itemData.data;
 
 			console.log('Item data:', itemData.data);
 		} catch (error) {
@@ -31,11 +32,11 @@
 				<p class="text-center text-lg text-gray-500">Loading items...</p>
 			{:else}
 				<ul>
-					{#each items as item}
+					{#each itemList as item}
 						<li class="flex items-center space-x-4 border-b border-gray-300 py-2">
-							<img class="h-12 w-12" src={item.thumb} alt={item.name} />
+							<img class="h-12 w-12" src={item.i18n.en.thumb} alt={item.i18n.en.name} />
 							<div>
-								<p class="text-lg font-semibold">{item.name}</p>
+								<p class="text-lg font-semibold">{item.i18n.en.thumb}</p>
 								<p class="text-sm text-gray-600">Tags: {item.tags}</p>
 							</div>
 						</li>
