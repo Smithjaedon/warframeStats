@@ -10,7 +10,10 @@
 			// Fetch all items
 			const itemResponse = await fetch(`${baseUrl}/items`);
 			const itemData = await itemResponse.json();
+
+			print(itemData);
 			const items = itemData.payload.items;
+			print(items);
 
 			let tempCategoryItems = {};
 
