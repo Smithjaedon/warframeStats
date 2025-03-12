@@ -4,6 +4,7 @@
 	let itemList = {};
 	let loading = true;
 	const baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.warframe.market/v2';
+	const imageBaseUrl = 'https://warframe.market/static/assets/';
 
 	async function fetchData() {
 		try {
@@ -34,9 +35,13 @@
 				<ul>
 					{#each itemList as item}
 						<li class="flex items-center space-x-4 border-b border-gray-300 py-2">
-							<img class="h-12 w-12" src={item.i18n.en.thumb} alt={item.i18n.en.name} />
+							<img
+								class="h-12 w-12"
+								src={'' + imageBaseUrl + item.i18n.en.thumb}
+								alt={item.i18n.en.name}
+							/>
 							<div>
-								<p class="text-lg font-semibold">{item.i18n.en.thumb}</p>
+								<p class="text-lg font-semibold">{item.i18n.en.name}</p>
 								<p class="text-sm text-gray-600">Tags: {item.tags}</p>
 							</div>
 						</li>
