@@ -12,7 +12,7 @@
 			let itemData = await itemResponse.json();
 
 			console.log('Item data:', itemData);
-			itemData = data.data.map((item) => ({
+			itemData = itemData.data.map((item) => ({
 				id: item.id,
 				name: item.i18n.en.name,
 				thumb: `https://api.warframe.market/${item.i18n.en.thumb}`,
