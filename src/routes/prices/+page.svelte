@@ -11,13 +11,7 @@
 			const itemResponse = await fetch(`${baseUrl}/items`);
 			let itemData = await itemResponse.json();
 
-			console.log('Item data:', itemData);
-			itemData = itemData.data.map((item) => ({
-				id: item.id,
-				name: item.i18n.en.name,
-				thumb: `https://api.warframe.market/${item.i18n.en.thumb}`,
-				tags: item.tags.join(', ') || 'Unknown'
-			}));
+			console.log('Item data:', itemData.data);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		} finally {
