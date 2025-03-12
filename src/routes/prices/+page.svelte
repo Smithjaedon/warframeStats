@@ -11,9 +11,9 @@
 			const itemResponse = await fetch(`${baseUrl}/items`);
 			const itemData = await itemResponse.json();
 
-			print(itemData);
+			console.log('Item data:', itemData);
 			const items = itemData.payload.items;
-			print(items);
+			console.log('Items:', items);
 
 			let tempCategoryItems = {};
 
