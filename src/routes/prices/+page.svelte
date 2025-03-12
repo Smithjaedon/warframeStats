@@ -3,7 +3,7 @@
 
 	let categoryItems = {};
 	let loading = true;
-	const baseUrl = 'https://api.warframe.market/v2';
+	const baseUrl = 'https://cors-anywhere.herokuapp.com/https://api.warframe.market/v2';
 
 	async function fetchData() {
 		try {
